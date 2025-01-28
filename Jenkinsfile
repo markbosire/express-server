@@ -33,7 +33,7 @@ pipeline {
                 script {
                     withCredentials([file(credentialsId: 'gcp-service-account', variable: 'GCP_KEY')]) {
                         // Authenticate to GCP
-                        sh "gcloud auth activate-service-account --key-file=${GCP_KEY}"
+                        sh 'gcloud auth activate-service-account --key-file=$GCP_KEY'
                         // Configure kubectl to connect to GKE cluster
                         sh "gcloud container clusters get-credentials ${GKE_CLUSTER} --zone ${GKE_ZONE} --project ${GCP_PROJECT}"
                         // Update image tag in deployment.yaml
