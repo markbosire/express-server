@@ -1,0 +1,20 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: express-server
+  template:
+    metadata:
+      labels:
+        app: express-server
+    spec:
+      containers:
+      - name: express-server
+        image: markbosire/express-server:latest
+        ports:
+        - containerPort: 80
