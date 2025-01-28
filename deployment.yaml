@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: express-server
-        image: markbosire/express-server:latest
+        image: markbosire/express-server:IMAGE_TAG
         ports:
-        - containerPort: 80
+        - containerPort: 3000
