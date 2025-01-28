@@ -40,6 +40,8 @@ pipeline {
                         sh "sed -i 's|IMAGE_TAG|${env.BUILD_ID}|g' deployment.yaml"
                         // Apply Kubernetes manifests
                         sh "kubectl apply -f deployment.yaml"
+
+                        sh "kubectl apply -f service.yaml"
                     }
                 }
             }
